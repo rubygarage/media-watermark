@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  GarageWatermark
+//  MediaWatermark
 //
 //  Created by Sergei on 03/05/2017.
 //  Copyright © 2017 rubygarage. All rights reserved.
