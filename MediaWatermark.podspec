@@ -18,14 +18,15 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-MediaWatermark is a framework which helps to render watermarks over image or video content.                       DESC
+MediaWatermark is a framework which helps to render watermarks over image or video content.               
+        DESC
 
   s.homepage         = 'https://github.com/rubygarage-ios/MediaWatermark'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Sergey Afanasiev' => 'sergey.afanasiev@rubygarage.org' }
   s.source           = { :git => 'https://github.com/rubygarage-ios/MediaWatermark.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = ‘9.0’
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'MediaWatermark/Classes/**/*'
   
