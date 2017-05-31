@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MediaWatermark_Example' do
+  pod 'MediaWatermark', :path => '../'
+
+  target 'MediaWatermark_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
