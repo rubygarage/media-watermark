@@ -4,6 +4,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+Swift 3.1, iOS 9.0
+
 ## Installation
 
 MediaWatermark is available through [CocoaPods](http://cocoapods.org). To install
