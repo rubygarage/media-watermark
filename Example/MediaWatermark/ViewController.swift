@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import Player
 import MBProgressHUD
-import GarageWatermark
+import MediaWatermark
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var resultImageView: UIImageView!
