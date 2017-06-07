@@ -22,14 +22,14 @@ if let item = MediaItem(url: url) {
     let logoImage = UIImage(named: "rglogo")
             
     let firstElement = MediaElement(image: logoImage!)
-	firstElement.frame = CGRect(x: 0, y: 0, width: logoImage!.size.width, height: logoImage!.size.height)
+    firstElement.frame = CGRect(x: 0, y: 0, width: logoImage!.size.width, height: logoImage!.size.height)
             
     let secondElement = MediaElement(image: logoImage!)
-	secondElement.frame = CGRect(x: 150, y: 150, width: logoImage!.size.width, height: logoImage!.size.height)
+    secondElement.frame = CGRect(x: 150, y: 150, width: logoImage!.size.width, height: logoImage!.size.height)
                         
-	item.add(elements: [firstElement, secondElement])
+    item.add(elements: [firstElement, secondElement])
             
-	let mediaProcessor = MediaProcessor()
+    let mediaProcessor = MediaProcessor()
     mediaProcessor.processElements(item: item) { [weak self] (result, error) in
     	// handle result            
     }
