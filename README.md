@@ -117,7 +117,7 @@ if let item = MediaItem(url: url) {
 
 Sergey Afanasiev
 
-##Getting Help
+## Getting Help
 
 sergey.afanasiev@rubygarage.org
 
