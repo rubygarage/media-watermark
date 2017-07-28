@@ -35,7 +35,7 @@ Processing Concept: GPU & CPU
 To run the example project, clone the repo, and run pod install from the Example directory first.
 
 ## Usage
-__Adding Several Images Over the Other Image__
+__Adding several images over the other image__
 
 To add two images with different coordinates over the third image, you may use code like the following. The images are placed according to the coordinates you set in the code.
 
@@ -58,7 +58,7 @@ if let item = MediaItem(url: url) {
 }
 ```
 
-__Adding an Image and Text Over the Image__
+__Adding an image and text over the image__
 
 The next script template will work in case if you need to render an image and text over the other image:
 
@@ -85,7 +85,7 @@ mediaProcessor.processElements(item: item) { [weak self] (result, error) in
 }
 ```
 
-__Adding an Image and Text Over the Video__
+__Adding an image and text over the video__
 
 Tto add an image and text over the video you may refer the following code extract:
 
