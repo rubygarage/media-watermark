@@ -87,7 +87,7 @@ mediaProcessor.processElements(item: item) { [weak self] (result, error) in
 
 __Adding an image and text over the video__
 
-Tto add an image and text over the video you may refer the following code extract:
+To add an image and text over the video you may refer the following code extract:
 
 ```swift
 if let item = MediaItem(url: url) {
