@@ -26,9 +26,9 @@ pod "MediaWatermark"
 ```
 ## Requirements
 
-iOS: 9.0+
-Swift: 3.1
-CocoaPods: for iOS
+iOS: 9.0+  
+Swift: 3.1  
+CocoaPods: for iOS  
 Processing Concept: GPU & CPU
 
 ## Example
