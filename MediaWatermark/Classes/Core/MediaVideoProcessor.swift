@@ -109,10 +109,12 @@ extension MediaProcessor {
     }
     
     private func clearTemporaryData(url: URL, completion: ProcessCompletionHandler!) {
-        do {
-            try FileManager.default.removeItem(at: url)
-        } catch {
-            completion(MediaProcessResult(processedUrl: nil, image: nil), error)
+        if (FileManager.default.fileExists(atPath: url.path)) {
+            do {
+                try FileManager.default.removeItem(at: url)
+            } catch {
+                completion(MediaProcessResult(processedUrl: nil, image: nil), error)
+            }
         }
     }
     
