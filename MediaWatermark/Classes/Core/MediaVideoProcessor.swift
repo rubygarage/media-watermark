@@ -26,14 +26,12 @@ extension MediaProcessor {
             try compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipVideoTrack!, at: kCMTimeZero)
         } catch {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
-            return
         }
         
         do {
             try compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipAudioTrack!, at: kCMTimeZero)
         } catch {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
-            return
         }
         
         compositionVideoTrack.preferredTransform = (item.sourceAsset.tracks(withMediaType: AVMediaTypeVideo).first?.preferredTransform)!
@@ -68,24 +66,20 @@ extension MediaProcessor {
         videoComposition.instructions = [instruction]
         
         let processedUrl = processedMoviePath()
-        let result = clearTemporaryData(url: processedUrl)
+        clearTemporaryData(url: processedUrl, completion: completion)
         
-        if result.success {
-            let exportSession = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
-            exportSession?.videoComposition = videoComposition
-            exportSession?.outputURL = processedUrl
-            exportSession?.outputFileType = AVFileTypeQuickTimeMovie
-            
-            exportSession?.exportAsynchronously(completionHandler: {
-                if exportSession?.status == AVAssetExportSessionStatus.completed {
-                    completion(MediaProcessResult(processedUrl: processedUrl, image: nil), nil)
-                } else {
-                    completion(MediaProcessResult(processedUrl: nil, image: nil), exportSession?.error)
-                }
-            })
-        } else {
-            completion(MediaProcessResult(processedUrl: nil, image: nil), result.error)
-        }
+        let exportSession = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
+        exportSession?.videoComposition = videoComposition
+        exportSession?.outputURL = processedUrl
+        exportSession?.outputFileType = AVFileTypeQuickTimeMovie
+        
+        exportSession?.exportAsynchronously(completionHandler: {
+            if exportSession?.status == AVAssetExportSessionStatus.completed {
+                completion(MediaProcessResult(processedUrl: processedUrl, image: nil), nil)
+            } else {
+                completion(MediaProcessResult(processedUrl: nil, image: nil), exportSession?.error)
+            }
+        })
     }
     
     // MARK: - private
@@ -114,16 +108,12 @@ extension MediaProcessor {
         return URL(fileURLWithPath: documentsPath)
     }
     
-    private func clearTemporaryData(url: URL) -> (success: Bool, error: Error?) {
-        if (FileManager.default.fileExists(atPath: url.path)) {
-            do {
-                try FileManager.default.removeItem(at: url)
-                return (true, nil)
-            } catch {
-                return (false, error)
-            }
+    private func clearTemporaryData(url: URL, completion: ProcessCompletionHandler!) {
+        do {
+            try FileManager.default.removeItem(at: url)
+        } catch {
+            completion(MediaProcessResult(processedUrl: nil, image: nil), error)
         }
-        return (true, nil)
     }
     
     private func resolutionSizeForLocalVideo(url: URL) -> CGSize {

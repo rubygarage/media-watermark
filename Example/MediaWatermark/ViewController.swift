@@ -86,7 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         resultImageView.addSubview(videoPlayer.view)
         
         if let item = MediaItem(url: url) {
-            let logoImage = UIImage(named: "logo")
+            let logoImage = UIImage(named: "rglogo")
             
             let firstElement = MediaElement(image: logoImage!)
             firstElement.frame = CGRect(x: 0, y: 0, width: logoImage!.size.width, height: logoImage!.size.height)
