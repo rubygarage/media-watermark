@@ -21,10 +21,10 @@ Pod::Spec.new do |s|
 MediaWatermark is a framework which helps to render watermarks over image or video content.               
         DESC
 
-  s.homepage         = 'https://github.com/rubygarage-ios/MediaWatermark'
+  s.homepage         = 'https://github.com/rubygarage/MediaWatermark'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Sergey Afanasiev' => 'sergey.afanasiev@rubygarage.org' }
-  s.source           = { :git => 'https://github.com/rubygarage-ios/MediaWatermark.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/rubygarage/MediaWatermark.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
