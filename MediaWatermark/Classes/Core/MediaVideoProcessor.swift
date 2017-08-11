@@ -26,12 +26,14 @@ extension MediaProcessor {
             try compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipVideoTrack!, at: kCMTimeZero)
         } catch {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
+            return
         }
         
         do {
             try compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipAudioTrack!, at: kCMTimeZero)
         } catch {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
+            return
         }
         
         compositionVideoTrack.preferredTransform = (item.sourceAsset.tracks(withMediaType: AVMediaTypeVideo).first?.preferredTransform)!
