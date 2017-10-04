@@ -218,7 +218,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = B29X6K99WJ;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -513,11 +512,11 @@
 			baseConfigurationReference = 4CD297F4AE2342DE14CFBDD3 /* Pods-MediaWatermark_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B29X6K99WJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MediaWatermark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.hhhjjj;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.MediaWatermark-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -528,11 +527,11 @@
 			baseConfigurationReference = C3CE59DEB5879FCF1CC501FA /* Pods-MediaWatermark_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B29X6K99WJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MediaWatermark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.hhhjjj;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.MediaWatermark-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
