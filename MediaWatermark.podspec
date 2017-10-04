@@ -35,6 +35,4 @@ MediaWatermark is a framework which helps to render watermarks over image or vid
   # }
 
   s.frameworks = 'UIKit'
-  s.dependency 'Player', '~> 0.5'
-  s.dependency 'MBProgressHUD', '~> 1.0'
 end
