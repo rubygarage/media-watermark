@@ -17,24 +17,24 @@ let kMediaContentTimeScale: Int32 = 30
 extension MediaProcessor {
     func processVideoWithElements(item: MediaItem, completion: @escaping ProcessCompletionHandler) {
         let mixComposition = AVMutableComposition()
-        let compositionVideoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: kCMPersistentTrackID_Invalid)
-        let clipVideoTrack = item.sourceAsset.tracks(withMediaType: AVMediaTypeVideo).first
-        let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: kCMPersistentTrackID_Invalid)
-        let clipAudioTrack = item.sourceAsset.tracks(withMediaType: AVMediaTypeAudio).first
+        let compositionVideoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        let clipVideoTrack = item.sourceAsset.tracks(withMediaType: AVMediaType.video).first
+        let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        let clipAudioTrack = item.sourceAsset.tracks(withMediaType: AVMediaType.audio).first
         
         do {
-            try compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipVideoTrack!, at: kCMTimeZero)
+            try compositionVideoTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipVideoTrack!, at: kCMTimeZero)
         } catch {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
         }
         
         do {
-            try compositionAudioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipAudioTrack!, at: kCMTimeZero)
+            try compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipAudioTrack!, at: kCMTimeZero)
         } catch {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
         }
         
-        compositionVideoTrack.preferredTransform = (item.sourceAsset.tracks(withMediaType: AVMediaTypeVideo).first?.preferredTransform)!
+        compositionVideoTrack?.preferredTransform = (item.sourceAsset.tracks(withMediaType: AVMediaType.video).first?.preferredTransform)!
         
         let sizeOfVideo = resolutionSizeForLocalVideo(url: item.sourceAsset.url)
         
@@ -58,7 +58,7 @@ extension MediaProcessor {
         let instruction = AVMutableVideoCompositionInstruction()
         instruction.timeRange = CMTimeRangeMake(kCMTimeZero, mixComposition.duration)
         
-        let videoTrack = mixComposition.tracks(withMediaType: AVMediaTypeVideo).first
+        let videoTrack = mixComposition.tracks(withMediaType: AVMediaType.video).first
         let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack!)
         layerInstruction.setTransform(transform(avAsset: item.sourceAsset, scaleFactor: kMediaContentDefaultScale), at: kCMTimeZero)
         
@@ -71,7 +71,7 @@ extension MediaProcessor {
         let exportSession = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
         exportSession?.videoComposition = videoComposition
         exportSession?.outputURL = processedUrl
-        exportSession?.outputFileType = AVFileTypeMPEG4
+        exportSession?.outputFileType = AVFileType.mp4
         
         exportSession?.exportAsynchronously(completionHandler: {
             if exportSession?.status == AVAssetExportSessionStatus.completed {
@@ -119,7 +119,7 @@ extension MediaProcessor {
     }
     
     private func resolutionSizeForLocalVideo(url: URL) -> CGSize {
-        guard let track = AVAsset(url: url).tracks(withMediaType: AVMediaTypeVideo).first
+        guard let track = AVAsset(url: url).tracks(withMediaType: AVMediaType.video).first
             else {
                 return CGSize.zero
         }

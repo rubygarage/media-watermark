@@ -11,7 +11,7 @@ import AVFoundation
 
 extension AVAsset {
     private var contentNaturalSize: CGSize {
-        return tracks(withMediaType: AVMediaTypeVideo).first?.naturalSize ?? .zero
+        return tracks(withMediaType: AVMediaType.video).first?.naturalSize ?? .zero
     }
     
     var contentCorrectSize: CGSize {
@@ -19,7 +19,7 @@ extension AVAsset {
     }
     
     var contentOrientation: UIInterfaceOrientation {
-        guard let transform = tracks(withMediaType: AVMediaTypeVideo).first?.preferredTransform else {
+        guard let transform = tracks(withMediaType: AVMediaType.video).first?.preferredTransform else {
             return .portrait
         }
         

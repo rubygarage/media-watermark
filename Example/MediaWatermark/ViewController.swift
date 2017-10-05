@@ -58,6 +58,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - processing
     func processImage(image: UIImage) {
+        playerLayer?.removeFromSuperlayer()
+
         resultImageView.image = nil
         resultImageView.subviews.forEach({$0.removeFromSuperview()})
         
@@ -79,7 +81,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func processVideo(url: URL) {        
+    func processVideo(url: URL) {
+        resultImageView.image = nil
+        
         if let item = MediaItem(url: url) {
             let logoImage = UIImage(named: "rglogo")
             
