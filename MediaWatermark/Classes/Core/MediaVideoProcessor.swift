@@ -131,21 +131,21 @@ extension MediaProcessor {
     }
     
     private func transform(avAsset: AVAsset, scaleFactor: CGFloat) -> CGAffineTransform {
-        let offset: CGPoint
-        let angle: Double
+        var offset = CGPoint.zero
+        var angle: Double = 0
         
         switch avAsset.contentOrientation {
-        case .landscapeLeft:
-            offset = CGPoint(x: avAsset.contentCorrectSize.width, y: avAsset.contentCorrectSize.height)
+        case .left:
+            offset = CGPoint(x: avAsset.contentCorrectSize.height, y: avAsset.contentCorrectSize.width)
             angle = Double.pi
-        case .landscapeRight:
+        case .right:
             offset = CGPoint.zero
             angle = 0
-        case .portraitUpsideDown:
-            offset = CGPoint(x: 0, y: avAsset.contentCorrectSize.height)
+        case .down:
+            offset = CGPoint(x: 0, y: avAsset.contentCorrectSize.width)
             angle = -(Double.pi / 2)
         default:
-            offset = CGPoint(x: avAsset.contentCorrectSize.width, y: 0)
+            offset = CGPoint(x: avAsset.contentCorrectSize.height, y: 0)
             angle = Double.pi / 2
         }
         
