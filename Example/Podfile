@@ -3,6 +3,8 @@ use_frameworks!
 target 'MediaWatermark_Example' do
   pod 'MediaWatermark', :path => '../'
 
+  pod 'MBProgressHUD', '~> 1.0'
+
   target 'MediaWatermark_Tests' do
     inherit! :search_paths
 

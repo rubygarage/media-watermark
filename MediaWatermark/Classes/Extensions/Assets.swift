@@ -11,32 +11,38 @@ import AVFoundation
 
 extension AVAsset {
     private var contentNaturalSize: CGSize {
-        return tracks(withMediaType: AVMediaTypeVideo).first?.naturalSize ?? .zero
+        return tracks(withMediaType: AVMediaType.video).first?.naturalSize ?? .zero
     }
     
     var contentCorrectSize: CGSize {
         return isContentPortrait ? CGSize(width: contentNaturalSize.height, height: contentNaturalSize.width) : contentNaturalSize
     }
     
-    var contentOrientation: UIInterfaceOrientation {
-        guard let transform = tracks(withMediaType: AVMediaTypeVideo).first?.preferredTransform else {
-            return .portrait
+    var contentOrientation: UIImageOrientation {
+        var assetOrientation = UIImageOrientation.up
+        let transform = tracks(withMediaType: AVMediaType.video)[0].preferredTransform
+        
+        if (transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0) {
+            assetOrientation = .up
         }
         
-        switch (transform.tx, transform.ty) {
-        case (0, 0):
-            return .landscapeRight
-        case (contentNaturalSize.width, contentNaturalSize.height):
-            return .landscapeLeft
-        case (0, contentNaturalSize.width):
-            return .portraitUpsideDown
-        default:
-            return .portrait
+        if (transform.a == 0 && transform.b == -1.0 && transform.c == 1.0 && transform.d == 0) {
+            assetOrientation = .down
         }
+        
+        if (transform.a == 1.0 && transform.b == 0 && transform.c == 0 && transform.d == 1.0) {
+            assetOrientation = .right
+        }
+
+        if (transform.a == -1.0 && transform.b == 0 && transform.c == 0 && transform.d == -1.0) {
+            assetOrientation = .left
+        }
+        
+        return assetOrientation
     }
     
     var isContentPortrait: Bool {
-        let portraits: [UIInterfaceOrientation] = [.portrait, .portraitUpsideDown]
+        let portraits: [UIImageOrientation] = [.left, .right]
         return portraits.contains(contentOrientation)
     }
 }

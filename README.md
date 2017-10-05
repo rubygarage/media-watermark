@@ -1,15 +1,15 @@
 ## About
 
-MediaWatemark is an open source GPU/CPU-based IOS video and image processing library, which helps to render watermarks over image or video content. It has simple interface and straightforward functionality.
+MediaWatemark is an open source GPU/CPU-based iOS watermark library for overlays adding to images or video content. It has simple interface and straightforward functionality.
 
 ## Overview
 __Simple & Universal__
 
-MediaWatemark is easy to install and integrate into any iOS project. It processes the wide variety of tasks and goes perfectly for rendering views and texts over the videos or other images. 
+MediaWatemark is easy to install and integrate into any iOS project. It processes the wide variety of tasks and goes perfectly for overlaying views and texts over the videos or other images.  
 
 __Light Code__
 
-MediaWatemark consists of light code and makes it easy to render one image over another, or do the same with the video content.
+MediaWatemark consists of light code and makes it easy to overlay one image over another, or do the same with the video content.
 
 __Easy Installation__
 
@@ -27,7 +27,7 @@ pod "MediaWatermark"
 ## Requirements
 
 iOS: 9.0+  
-Swift: 3.1  
+Swift: 4.0  
 CocoaPods: for iOS  
 Processing Concept: GPU & CPU
 

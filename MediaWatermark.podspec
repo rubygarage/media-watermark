@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MediaWatermark'
-  s.version          = '0.1.2'
-  s.summary          = 'Image and video processing'
+  s.version          = '0.1.3'
+  s.summary          = 'iOS watermark library'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-MediaWatermark is a framework which helps to render watermarks over image or video content.               
+MediaWatermark is a GPU/CPU-based iOS watermark library for overlays adding to video or images               
         DESC
 
   s.homepage         = 'https://github.com/rubygarage/media-watermark'
@@ -35,6 +35,4 @@ MediaWatermark is a framework which helps to render watermarks over image or vid
   # }
 
   s.frameworks = 'UIKit'
-  s.dependency 'Player', '~> 0.5'
-  s.dependency 'MBProgressHUD', '~> 1.0'
 end
