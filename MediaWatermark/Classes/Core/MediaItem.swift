@@ -28,7 +28,7 @@ public class MediaItem {
     
     public private(set) var sourceAsset: AVURLAsset! = nil
     public private(set) var sourceImage: UIImage! = nil
-    public private(set) var mediaElements: [MediaElement]! = nil
+    public private(set) var mediaElements = [MediaElement]()
     
     // MARK: - init
     public init(asset: AVURLAsset) {
@@ -54,18 +54,10 @@ public class MediaItem {
     
     // MARK: - elements
     public func add(element: MediaElement) {
-        if mediaElements == nil {
-            mediaElements = [MediaElement]()
-        }
-        
         mediaElements.append(element)
     }
     
     public func add(elements: [MediaElement]) {
-        if mediaElements == nil {
-            mediaElements = [MediaElement]()
-        }
-        
         mediaElements.append(contentsOf: elements)
     }
     

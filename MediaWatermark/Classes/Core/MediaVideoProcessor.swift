@@ -19,7 +19,6 @@ extension MediaProcessor {
         let mixComposition = AVMutableComposition()
         let compositionVideoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid)
         let clipVideoTrack = item.sourceAsset.tracks(withMediaType: AVMediaType.video).first
-        let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
         let clipAudioTrack = item.sourceAsset.tracks(withMediaType: AVMediaType.audio).first
         
         do {
@@ -28,12 +27,16 @@ extension MediaProcessor {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
         }
         
-        do {
-            try compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipAudioTrack!, at: kCMTimeZero)
-        } catch {
-            completion(MediaProcessResult(processedUrl: nil, image: nil), error)
+        if (clipAudioTrack != nil) {
+            let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+
+            do {
+                try compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipAudioTrack!, at: kCMTimeZero)
+            } catch {
+                completion(MediaProcessResult(processedUrl: nil, image: nil), error)
+            }
         }
-        
+       
         compositionVideoTrack?.preferredTransform = (item.sourceAsset.tracks(withMediaType: AVMediaType.video).first?.preferredTransform)!
         
         let sizeOfVideo = resolutionSizeForLocalVideo(url: item.sourceAsset.url)
