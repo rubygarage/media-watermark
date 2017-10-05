@@ -4,7 +4,6 @@ target 'MediaWatermark_Example' do
   pod 'MediaWatermark', :path => '../'
 
   pod 'MBProgressHUD', '~> 1.0'
-  pod 'Player', '~> 0.5'
 
   target 'MediaWatermark_Tests' do
     inherit! :search_paths

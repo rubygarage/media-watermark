@@ -8,15 +8,16 @@
 
 import UIKit
 import MobileCoreServices
-import Player
 import MBProgressHUD
 import MediaWatermark
+import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var resultImageView: UIImageView!
     
     var imagePickerController: UIImagePickerController! = nil
-    var videoPlayer = Player()
+    var player: AVPlayer! = nil
+    var playerLayer: AVPlayerLayer! = nil
     
     // MARK: - view controller lifecycle
     override func viewDidLoad() {
@@ -57,6 +58,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - processing
     func processImage(image: UIImage) {
+        playerLayer?.removeFromSuperlayer()
+
         resultImageView.image = nil
         resultImageView.subviews.forEach({$0.removeFromSuperview()})
         
@@ -80,10 +83,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func processVideo(url: URL) {
         resultImageView.image = nil
-        resultImageView.subviews.forEach({$0.removeFromSuperview()})
-        
-        videoPlayer.view.frame = resultImageView.bounds
-        resultImageView.addSubview(videoPlayer.view)
         
         if let item = MediaItem(url: url) {
             let logoImage = UIImage(named: "rglogo")
@@ -102,12 +101,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             mediaProcessor.processElements(item: item) { [weak self] (result, error) in
                 DispatchQueue.main.async {
                     MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                    
+                    self?.playVideo(url: result.processedUrl!, view: (self?.resultImageView)!)
                 }
-                
-                self?.videoPlayer.url = result.processedUrl
-                self?.videoPlayer.playFromBeginning()
             }
         }
+    }
+    
+    func playVideo(url: URL, view: UIView) {
+        playerLayer?.removeFromSuperlayer()
+        
+        player = AVPlayer(url: url)
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = view.bounds
+        
+        view.layer.addSublayer(playerLayer)
+        
+        player.play()
     }
 }
 
