@@ -22,22 +22,19 @@ extension AVAsset {
         var assetOrientation = UIImageOrientation.up
         let transform = tracks(withMediaType: AVMediaType.video)[0].preferredTransform
         
-        if(transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0)
-        {
+        if (transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0) {
             assetOrientation = .up
         }
         
-        if(transform.a == 0 && transform.b == -1.0 && transform.c == 1.0 && transform.d == 0)  {
+        if (transform.a == 0 && transform.b == -1.0 && transform.c == 1.0 && transform.d == 0) {
             assetOrientation = .down
         }
         
-        if(transform.a == 1.0 && transform.b == 0 && transform.c == 0 && transform.d == 1.0)
-        {
+        if (transform.a == 1.0 && transform.b == 0 && transform.c == 0 && transform.d == 1.0) {
             assetOrientation = .right
         }
 
-        if(transform.a == -1.0 && transform.b == 0 && transform.c == 0 && transform.d == -1.0)
-        {
+        if (transform.a == -1.0 && transform.b == 0 && transform.c == 0 && transform.d == -1.0) {
             assetOrientation = .left
         }
         
