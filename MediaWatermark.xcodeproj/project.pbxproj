@@ -141,9 +141,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8EAFD1802008CA5F005498D4 /* MediaWatermark */ = {
+		8EAFD1802008CA5F005498D4 /* MediaWatermark-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8EAFD1892008CA5F005498D4 /* Build configuration list for PBXNativeTarget "MediaWatermark" */;
+			buildConfigurationList = 8EAFD1892008CA5F005498D4 /* Build configuration list for PBXNativeTarget "MediaWatermark-iOS" */;
 			buildPhases = (
 				8EAFD17C2008CA5F005498D4 /* Sources */,
 				8EAFD17D2008CA5F005498D4 /* Frameworks */,
@@ -154,7 +154,7 @@
 			);
 			dependencies = (
 			);
-			name = MediaWatermark;
+			name = "MediaWatermark-iOS";
 			productName = MediaWatermark;
 			productReference = 8EAFD1812008CA5F005498D4 /* MediaWatermark.framework */;
 			productType = "com.apple.product-type.framework";
@@ -186,7 +186,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8EAFD1802008CA5F005498D4 /* MediaWatermark */,
+				8EAFD1802008CA5F005498D4 /* MediaWatermark-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -350,7 +350,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rubygarage.MediaWatermark;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MediaWatermark;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -371,7 +371,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rubygarage.MediaWatermark;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = MediaWatermark;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,7 +390,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8EAFD1892008CA5F005498D4 /* Build configuration list for PBXNativeTarget "MediaWatermark" */ = {
+		8EAFD1892008CA5F005498D4 /* Build configuration list for PBXNativeTarget "MediaWatermark-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8EAFD18A2008CA5F005498D4 /* Debug */,

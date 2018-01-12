@@ -23,12 +23,12 @@
 			remoteGlobalIDString = 8EAFD1812008CA5F005498D4;
 			remoteInfo = MediaWatermark;
 		};
-		8E49575C2008D61C008855F8 /* PBXContainerItemProxy */ = {
+		8EDE624F2008F43F00E0F8A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8E4957562008D614008855F8 /* MediaWatermark.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8EAFD1802008CA5F005498D4;
-			remoteInfo = MediaWatermark;
+			remoteInfo = "MediaWatermark-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -154,7 +154,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8E49575D2008D61C008855F8 /* PBXTargetDependency */,
+				8EDE62502008F43F00E0F8A5 /* PBXTargetDependency */,
 			);
 			name = MediaWatermarkExample;
 			productName = MediaWatermark;
@@ -305,10 +305,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8E49575D2008D61C008855F8 /* PBXTargetDependency */ = {
+		8EDE62502008F43F00E0F8A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MediaWatermark;
-			targetProxy = 8E49575C2008D61C008855F8 /* PBXContainerItemProxy */;
+			name = "MediaWatermark-iOS";
+			targetProxy = 8EDE624F2008F43F00E0F8A5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
