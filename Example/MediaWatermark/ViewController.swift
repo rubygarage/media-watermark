@@ -8,7 +8,6 @@
 
 import UIKit
 import MobileCoreServices
-import MBProgressHUD
 import MediaWatermark
 import AVFoundation
 
@@ -93,15 +92,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let secondElement = MediaElement(image: logoImage!)
             secondElement.frame = CGRect(x: 150, y: 150, width: logoImage!.size.width, height: logoImage!.size.height)
             
-            MBProgressHUD.showAdded(to: view, animated: true)
-            
             item.add(elements: [firstElement, secondElement])
             
             let mediaProcessor = MediaProcessor()
             mediaProcessor.processElements(item: item) { [weak self] (result, error) in
                 DispatchQueue.main.async {
-                    MBProgressHUD.hide(for: (self?.view)!, animated: true)
-                    
                     self?.playVideo(url: result.processedUrl!, view: (self?.resultImageView)!)
                 }
             }
