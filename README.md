@@ -18,12 +18,21 @@ Before using the library in your work, you may run the example project, I'm shar
 
 ## Installation
 
-MediaWatermark is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### CocoaPods
+MediaWatermark is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your `Podfile`:
 
 ```ruby
 pod "MediaWatermark"
 ```
+
+### Carthage
+To integrate MediaWatermark into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile`:
+
+```ogdl
+github "rubygarage/media-watermark" ~> 0.2
+```
+Run `carthage update` to build the framework and drag the built MediaWatermark.framework into your Xcode project.
+
 ## Requirements
 
 iOS: 9.0+  
