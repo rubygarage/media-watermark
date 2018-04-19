@@ -29,7 +29,8 @@ public class MediaItem {
     public private(set) var sourceAsset: AVURLAsset! = nil
     public private(set) var sourceImage: UIImage! = nil
     public private(set) var mediaElements = [MediaElement]()
-    
+    public private(set) var filter: MediaFilter! = nil
+
     // MARK: - init
     public init(asset: AVURLAsset) {
         sourceAsset = asset
@@ -63,6 +64,11 @@ public class MediaItem {
     
     public func removeAllElements() {
         mediaElements.removeAll()
+    }
+    
+    // MARK: - filters
+    public func applyFilter(mediaFilter: MediaFilter) {
+        filter = mediaFilter
     }
     
     // MARK: - private
