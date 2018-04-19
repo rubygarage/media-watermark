@@ -13,6 +13,8 @@
 		8E174A3D2008D05A006F2C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CEEFCD71EDEC34E00CD0EB7 /* Main.storyboard */; };
 		8E174A3E2008D05A006F2C52 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		8E174A3F2008D05A006F2C52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		8EB3DD3B2088DED500A3A2BC /* MediaWatermark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E49575B2008D614008855F8 /* MediaWatermark.framework */; };
+		8EB3DD3C2088DED500A3A2BC /* MediaWatermark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E49575B2008D614008855F8 /* MediaWatermark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +25,13 @@
 			remoteGlobalIDString = 8EAFD1812008CA5F005498D4;
 			remoteInfo = MediaWatermark;
 		};
+		8EB3DD3D2088DED500A3A2BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E4957562008D614008855F8 /* MediaWatermark.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8EAFD1802008CA5F005498D4;
+			remoteInfo = "MediaWatermark-iOS";
+		};
 		8EDE624F2008F43F00E0F8A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8E4957562008D614008855F8 /* MediaWatermark.xcodeproj */;
@@ -31,6 +40,20 @@
 			remoteInfo = "MediaWatermark-iOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8EB3DD3F2088DED600A3A2BC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8EB3DD3C2088DED500A3A2BC /* MediaWatermark.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB3DD3B2088DED500A3A2BC /* MediaWatermark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,11 +174,13 @@
 				8E174A362008D05A006F2C52 /* Sources */,
 				8E174A392008D05A006F2C52 /* Frameworks */,
 				8E174A3B2008D05A006F2C52 /* Resources */,
+				8EB3DD3F2088DED600A3A2BC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				8EDE62502008F43F00E0F8A5 /* PBXTargetDependency */,
+				8EB3DD3E2088DED500A3A2BC /* PBXTargetDependency */,
 			);
 			name = MediaWatermarkExample;
 			productName = MediaWatermark;
@@ -305,6 +331,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8EB3DD3E2088DED500A3A2BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MediaWatermark-iOS";
+			targetProxy = 8EB3DD3D2088DED500A3A2BC /* PBXContainerItemProxy */;
+		};
 		8EDE62502008F43F00E0F8A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "MediaWatermark-iOS";
@@ -458,6 +489,7 @@
 		8E174A432008D05A006F2C52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MediaWatermark/Info.plist;
@@ -472,6 +504,7 @@
 		8E174A442008D05A006F2C52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MediaWatermark/Info.plist;

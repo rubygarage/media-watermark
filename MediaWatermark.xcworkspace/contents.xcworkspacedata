@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/mvoronin/projects/ios/MediaWatermark/MediaWatermark.xcodeproj">
+      location = "group:MediaWatermark.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/mvoronin/projects/ios/MediaWatermark/Example/MediaWatermarkExample.xcodeproj">
+      location = "group:Example/MediaWatermarkExample.xcodeproj">
    </FileRef>
 </Workspace>
