@@ -26,6 +26,23 @@ public class MediaItem {
         return sourceAsset != nil ? .video : .image
     }
     
+    public var size: CGSize {
+        get {
+            if sourceAsset != nil {
+                if let track = AVAsset(url: sourceAsset.url).tracks(withMediaType: AVMediaType.video).first {
+                    let size = track.naturalSize.applying(track.preferredTransform)
+                    return CGSize(width: fabs(size.width), height: fabs(size.height))
+                } else {
+                    return CGSize.zero
+                }
+            } else if sourceImage != nil {
+                return sourceImage.size
+            }
+            
+            return CGSize.zero
+        }
+    }
+    
     public private(set) var sourceAsset: AVURLAsset! = nil
     public private(set) var sourceImage: UIImage! = nil
     public private(set) var mediaElements = [MediaElement]()
