@@ -39,7 +39,7 @@ extension MediaProcessor {
        
         compositionVideoTrack?.preferredTransform = (item.sourceAsset.tracks(withMediaType: AVMediaType.video).first?.preferredTransform)!
         
-        let sizeOfVideo = resolutionSizeForLocalVideo(url: item.sourceAsset.url)
+        let sizeOfVideo = item.size()
         
         let optionalLayer = CALayer()
         processAndAddElements(item: item, layer: optionalLayer)
@@ -119,15 +119,6 @@ extension MediaProcessor {
                 completion(MediaProcessResult(processedUrl: nil, image: nil), error)
             }
         }
-    }
-    
-    private func resolutionSizeForLocalVideo(url: URL) -> CGSize {
-        guard let track = AVAsset(url: url).tracks(withMediaType: AVMediaType.video).first
-            else {
-                return CGSize.zero
-        }
-        let size = track.naturalSize.applying(track.preferredTransform)
-        return CGSize(width: fabs(size.width), height: fabs(size.height))
     }
     
     private func transform(avAsset: AVAsset, scaleFactor: CGFloat) -> CGAffineTransform {

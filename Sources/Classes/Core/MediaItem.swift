@@ -52,6 +52,21 @@ public class MediaItem {
         }
     }
     
+    func size() -> CGSize {
+        if sourceAsset != nil {
+            if let track = AVAsset(url: sourceAsset.url).tracks(withMediaType: AVMediaType.video).first {
+                let size = track.naturalSize.applying(track.preferredTransform)
+                return CGSize(width: fabs(size.width), height: fabs(size.height))
+            } else {
+                return CGSize.zero
+            }
+        } else if sourceImage != nil {
+            return sourceImage.size
+        }
+        
+        return CGSize.zero
+    }
+    
     // MARK: - elements
     public func add(element: MediaElement) {
         mediaElements.append(element)
