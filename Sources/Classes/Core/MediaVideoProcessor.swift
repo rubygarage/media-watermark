@@ -39,7 +39,7 @@ extension MediaProcessor {
        
         compositionVideoTrack?.preferredTransform = (item.sourceAsset.tracks(withMediaType: AVMediaType.video).first?.preferredTransform)!
         
-        let sizeOfVideo = item.size()
+        let sizeOfVideo = item.size
         
         let optionalLayer = CALayer()
         processAndAddElements(item: item, layer: optionalLayer)
