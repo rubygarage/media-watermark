@@ -26,7 +26,7 @@ public class MediaItem {
         return sourceAsset != nil ? .video : .image
     }
     
-    var size: CGSize {
+    public var size: CGSize {
         get {
             if sourceAsset != nil {
                 if let track = AVAsset(url: sourceAsset.url).tracks(withMediaType: AVMediaType.video).first {
