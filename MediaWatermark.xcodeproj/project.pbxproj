@@ -11,6 +11,7 @@
 		8C35B06F2088E31800770388 /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B06B2088E31800770388 /* ColorFilter.swift */; };
 		8C35B0702088E31800770388 /* FilterProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B06C2088E31800770388 /* FilterProcessor.swift */; };
 		8C35B0712088E31800770388 /* MediaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B06D2088E31800770388 /* MediaFilter.swift */; };
+		8C35B0742088E5FD00770388 /* color_shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B0732088E5FD00770388 /* color_shader.metal */; };
 		8EAFD1B02008CE56005498D4 /* MediaImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A62008CE56005498D4 /* MediaImageProcessor.swift */; };
 		8EAFD1B12008CE56005498D4 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A72008CE56005498D4 /* MediaItem.swift */; };
 		8EAFD1B22008CE56005498D4 /* MediaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A82008CE56005498D4 /* MediaProcessor.swift */; };
@@ -32,6 +33,7 @@
 		8C35B06B2088E31800770388 /* ColorFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
 		8C35B06C2088E31800770388 /* FilterProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterProcessor.swift; sourceTree = "<group>"; };
 		8C35B06D2088E31800770388 /* MediaFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaFilter.swift; sourceTree = "<group>"; };
+		8C35B0732088E5FD00770388 /* color_shader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = color_shader.metal; sourceTree = "<group>"; };
 		8EAFD1812008CA5F005498D4 /* MediaWatermark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaWatermark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAFD1A62008CE56005498D4 /* MediaImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaImageProcessor.swift; sourceTree = "<group>"; };
 		8EAFD1A72008CE56005498D4 /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
@@ -65,12 +67,21 @@
 		8C35B0692088E31800770388 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				8C35B0722088E56400770388 /* Effects */,
 				8C35B06A2088E31800770388 /* GraphicContext.swift */,
-				8C35B06B2088E31800770388 /* ColorFilter.swift */,
 				8C35B06C2088E31800770388 /* FilterProcessor.swift */,
 				8C35B06D2088E31800770388 /* MediaFilter.swift */,
 			);
 			path = Filters;
+			sourceTree = "<group>";
+		};
+		8C35B0722088E56400770388 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				8C35B0732088E5FD00770388 /* color_shader.metal */,
+				8C35B06B2088E31800770388 /* ColorFilter.swift */,
+			);
+			path = Effects;
 			sourceTree = "<group>";
 		};
 		8EAFD1772008CA5F005498D4 = {
@@ -238,6 +249,7 @@
 				8EAFD1B02008CE56005498D4 /* MediaImageProcessor.swift in Sources */,
 				8C35B0702088E31800770388 /* FilterProcessor.swift in Sources */,
 				8C35B06F2088E31800770388 /* ColorFilter.swift in Sources */,
+				8C35B0742088E5FD00770388 /* color_shader.metal in Sources */,
 				8C35B06E2088E31800770388 /* GraphicContext.swift in Sources */,
 				8EAFD1B12008CE56005498D4 /* MediaItem.swift in Sources */,
 				8EAFD1B62008CE56005498D4 /* Assets.swift in Sources */,

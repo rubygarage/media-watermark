@@ -63,6 +63,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         resultImageView.subviews.forEach({$0.removeFromSuperview()})
         
         let item = MediaItem(image: image)
+        let colorFilter = ColorFilter()
+        colorFilter.r = 1
+        
+        item.applyFilter(mediaFilter: ColorFilter())
         
         let logoImage = UIImage(named: "logo")
         

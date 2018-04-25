@@ -12,4 +12,6 @@ public class ColorFilter: MediaFilter {
     public var r: CGFloat = 0
     public var g: CGFloat = 0
     public var b: CGFloat = 0
+    
+    public init() {}
 }

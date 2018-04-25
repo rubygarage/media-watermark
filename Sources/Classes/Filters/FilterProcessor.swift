@@ -17,20 +17,27 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
     var mPipeline: MTLComputePipelineState?
     var mTexture: MTLTexture?
     var completionClosure: ((_ success: Bool, _ image: UIImage?, _ error: Error?) -> ())?
+    var filter: MediaFilter! = nil
+    var mainView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     
-    override init() {
+    init(mediaFilter: MediaFilter) {
         super.init()
         
+        filter = mediaFilter
         context = GraphicContext()
     }
     
-    func processImage(image: UIImage, contentView: MTKView, completion: @escaping ((_ success: Bool, _ image: UIImage?, _ error: Error?) -> ())) {
-        mtkView = contentView
+    func processImage(image: UIImage, completion: @escaping ((_ success: Bool, _ image: UIImage?, _ error: Error?) -> ())) {
+        mtkView = MTKView(frame: mainView.bounds)
+        mainView.addSubview(mtkView!)
+        
         mtkView?.device = context!.mDevice!
         mtkView?.delegate = self
         mtkView?.framebufferOnly = false
         mtkView?.autoResizeDrawable = false
         mtkView?.drawableSize = image.size
+        
+        
         
         completionClosure = completion
         
@@ -41,8 +48,6 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
             
             let textureLoader = MTKTextureLoader(device: context!.mDevice!)
             mTexture = try textureLoader.newTexture(cgImage: image.cgImage!, options: [MTKTextureLoader.Option.SRGB: false])
-            
-            completionClosure!(true, UIImage.image(fromTexture: mtkView!.currentDrawable!.texture), nil)
             
         } catch {
             completionClosure!(false, nil, error)
@@ -66,9 +71,12 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         
         commandBuffer.present(view.currentDrawable!)
         commandBuffer.commit()
+        
+        completionClosure!(true, UIImage.image(fromTexture: mtkView!.currentDrawable!.texture), nil)
+
     }
     
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        // TODO:
+        print()
     }
 }
