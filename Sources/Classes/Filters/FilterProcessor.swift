@@ -73,9 +73,11 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         encoder.setTexture(mTexture, index: 0)
         encoder.setTexture(drawingTexture, index: 1)
     
-//        var data = [CInt(3)]
-//        let dataBuffer = view.device!.makeBuffer(bytes: &data, length: MemoryLayout.stride(ofValue: data), options: [])
-//        encoder.setBuffer(dataBuffer!, offset: 0, index: 0)
+        let colorFilter = filter as! ColorFilter
+        
+        var data = [CFloat(colorFilter.r), CFloat(colorFilter.g), CFloat(colorFilter.b)]
+        let dataBuffer = view.device!.makeBuffer(bytes: &data, length: MemoryLayout.stride(ofValue: data), options: [])
+        encoder.setBuffer(dataBuffer!, offset: 0, index: 0)
         
         encoder.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupCount)
         encoder.endEncoding()
