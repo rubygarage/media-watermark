@@ -11,6 +11,7 @@ using namespace metal;
 
 kernel void compute_shader(texture2d<float, access::read> input [[texture(0)]],
                            texture2d<float, access::write> output [[texture(1)]],
+                           const device int* data [[ buffer(0) ]],
                            uint2 gid [[thread_position_in_grid]])
 {
     

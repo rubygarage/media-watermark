@@ -65,8 +65,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let item = MediaItem(image: image)
         let colorFilter = ColorFilter()
         colorFilter.r = 1
+        colorFilter.g = 1
         
-        item.applyFilter(mediaFilter: ColorFilter())
+        item.applyFilter(mediaFilter: colorFilter)
         
         let logoImage = UIImage(named: "logo")
         
