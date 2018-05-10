@@ -15,11 +15,19 @@ public class GraphicContext {
     var mDevice: MTLDevice?
     var mCommandQueue: MTLCommandQueue?
     var mTextureLoader: MTKTextureLoader?
+    var mediaFilter: MediaFilter?
     
-    init() {
+    init(mediaFilter: MediaFilter) {
         mDevice = MTLCreateSystemDefaultDevice()
-        mLibrary = mDevice?.makeDefaultLibrary()
-        mCommandQueue = mDevice?.makeCommandQueue()
-        mTextureLoader = MTKTextureLoader(device: mDevice!)
+        
+        let shaderSource = FilterShaderProvider.provideShader(filter: mediaFilter)
+        do {
+            try mLibrary = mDevice?.makeLibrary(source: shaderSource, options: nil)
+            mCommandQueue = mDevice?.makeCommandQueue()
+            mTextureLoader = MTKTextureLoader(device: mDevice!)
+        }
+        catch {
+            print(error)
+        }      
     }
 }

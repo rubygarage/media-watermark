@@ -6,4 +6,6 @@
 //  Copyright © 2018 RubyGarage. All rights reserved.
 //
 
-public protocol MediaFilter {}
+public class MediaFilter {
+    public var name = ""
+}

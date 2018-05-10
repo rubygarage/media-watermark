@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C35B0762088EBCD00770388 /* color_shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C35B0752088EBCD00770388 /* color_shader.metal */; };
 		8E174A372008D05A006F2C52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		8E174A382008D05A006F2C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		8E174A3C2008D05A006F2C52 /* rglogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CBC3AF31F84F9A400F66FED /* rglogo.png */; };
@@ -63,7 +62,6 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* MediaWatermarkExample_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaWatermarkExample_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C35B0752088EBCD00770388 /* color_shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = color_shader.metal; path = ../Sources/Classes/Filters/Effects/color_shader.metal; sourceTree = "<group>"; };
 		8CBC3AF31F84F9A400F66FED /* rglogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rglogo.png; sourceTree = "<group>"; };
 		8CEEFCD81EDEC34E00CD0EB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E174A452008D05A006F2C52 /* MediaWatermarkExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaWatermarkExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +97,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				8C35B0752088EBCD00770388 /* color_shader.metal */,
 				8E4957562008D614008855F8 /* MediaWatermark.xcodeproj */,
 				607FACD21AFB9204008FA782 /* Example for MediaWatermark */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -331,7 +328,6 @@
 			files = (
 				8E174A372008D05A006F2C52 /* ViewController.swift in Sources */,
 				8E174A382008D05A006F2C52 /* AppDelegate.swift in Sources */,
-				8C35B0762088EBCD00770388 /* color_shader.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

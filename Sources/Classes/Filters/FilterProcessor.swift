@@ -26,7 +26,7 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         super.init()
         
         filter = mediaFilter
-        context = GraphicContext()
+        context = GraphicContext(mediaFilter: filter)
     }
     
     func processImage(image: UIImage, completion: @escaping ((_ success: Bool, _ finished: Bool, _ image: UIImage?, _ error: Error?) -> ())) {
@@ -40,7 +40,7 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         
         completionClosure = completion
         
-        let shader = context?.mLibrary?.makeFunction(name: "compute_shader")
+        let shader = context?.mLibrary?.makeFunction(name: filter.name)
         
         do {
             mPipeline = try context?.mDevice?.makeComputePipelineState(function: shader!)
@@ -60,8 +60,6 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
     }
     
     public func draw(in view: MTKView) {
-//        print("B")
-        
         let commandBuffer = context!.mCommandQueue!.makeCommandBuffer()!
         let drawingTexture = view.currentDrawable!.texture
         
@@ -73,11 +71,13 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         encoder.setTexture(mTexture, index: 0)
         encoder.setTexture(drawingTexture, index: 1)
     
-        let colorFilter = filter as! ColorFilter
+//        let colorFilter = filter as! ColorFilter
+//
+//        var data = [CFloat(colorFilter.r), CFloat(colorFilter.g), CFloat(colorFilter.b)]
+//        let dataBuffer = view.device!.makeBuffer(bytes: &data, length: MemoryLayout.stride(ofValue: data), options: [])
+//        encoder.setBuffer(dataBuffer!, offset: 0, index: 0)
         
-        var data = [CFloat(colorFilter.r), CFloat(colorFilter.g), CFloat(colorFilter.b)]
-        let dataBuffer = view.device!.makeBuffer(bytes: &data, length: MemoryLayout.stride(ofValue: data), options: [])
-        encoder.setBuffer(dataBuffer!, offset: 0, index: 0)
+        FilterShaderParamManager.manageParameters(fromFilter: filter, toEncoder: encoder, withView: view)
         
         encoder.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupCount)
         encoder.endEncoding()
@@ -90,7 +90,7 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         
 //                let thresholdFilter = MPSImageThresholdToZero(device: context!.mDevice!, thresholdValue: 0.5, linearGrayColorTransform: nil)
 //                thresholdFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)
-//        
+//
         
         commandBuffer.present(view.currentDrawable!)
         commandBuffer.commit()
@@ -99,7 +99,6 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
     }
     
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-//        print("A")
         renderTimesCount += 1
     }
 }
