@@ -12,7 +12,7 @@ extension MediaProcessor {
     func processImageWithElements(item: MediaItem, completion: @escaping ProcessCompletionHandler) {
         if item.filter != nil {
             filterProcessor = FilterProcessor(mediaFilter: item.filter)
-            filterProcessor.processImage(image: item.sourceImage, completion: { [weak self] (success, finished, image, error) in
+            filterProcessor.processImage(image: item.sourceImage.fixedOrientation(), completion: { [weak self] (success, finished, image, error) in
                 if error != nil {
                     completion(MediaProcessResult(processedUrl: nil, image: nil), error)
                 } else if image != nil && finished == true {
