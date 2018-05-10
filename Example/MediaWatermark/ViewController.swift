@@ -66,7 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let colorFilter = ColorFilter()
         colorFilter.r = 1
         
-        item.applyFilter(mediaFilter: colorFilter)
+       item.applyFilter(mediaFilter: colorFilter)
         
         let logoImage = UIImage(named: "logo")
         
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let secondElement = MediaElement(image: logoImage!)
         secondElement.frame = CGRect(x: 100, y: 100, width: logoImage!.size.width, height: logoImage!.size.height)
         
-        item.add(elements: [firstElement, secondElement])
+//        item.add(elements: [firstElement, secondElement])
         
         let mediaProcessor = MediaProcessor()
         mediaProcessor.processElements(item: item) { [weak self] (result, error) in

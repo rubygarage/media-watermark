@@ -82,6 +82,16 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         encoder.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupCount)
         encoder.endEncoding()
         
+//        let blurFilter = MPSImageGaussianBlur(device: context!.mDevice!, sigma: 45.0)
+//        blurFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)
+        
+//        let sobelFilter = MPSImageSobel(device: context!.mDevice!)
+//        sobelFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)
+        
+//                let thresholdFilter = MPSImageThresholdToZero(device: context!.mDevice!, thresholdValue: 0.5, linearGrayColorTransform: nil)
+//                thresholdFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)
+//        
+        
         commandBuffer.present(view.currentDrawable!)
         commandBuffer.commit()
         
