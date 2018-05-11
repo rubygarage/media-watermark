@@ -8,4 +8,5 @@
 
 public class MediaFilter {
     public var name = ""
+    public var hasCustomShader: Bool = false
 }

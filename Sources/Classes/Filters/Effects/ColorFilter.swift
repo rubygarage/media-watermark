@@ -19,5 +19,6 @@ public class ColorFilter: MediaFilter {
         super.init()
         
         name = kColorFilterName
+        hasCustomShader = true
     }
 }

@@ -14,6 +14,9 @@
 		8C5DDCD920A481CB00E30E71 /* FilterShaderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCD820A481CB00E30E71 /* FilterShaderProvider.swift */; };
 		8C5DDCDB20A493F200E30E71 /* SepiaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCDA20A493F200E30E71 /* SepiaFilter.swift */; };
 		8C5DDCDD20A497F600E30E71 /* FilterShaderParamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCDC20A497F600E30E71 /* FilterShaderParamManager.swift */; };
+		8C5DDCDF20A5A4C200E30E71 /* BlurFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCDE20A5A4C200E30E71 /* BlurFilter.swift */; };
+		8C5DDCE120A5AF8300E30E71 /* SobelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCE020A5AF8300E30E71 /* SobelFilter.swift */; };
+		8C5DDCE320A5B08900E30E71 /* ThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCE220A5B08900E30E71 /* ThresholdFilter.swift */; };
 		8EAFD1B02008CE56005498D4 /* MediaImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A62008CE56005498D4 /* MediaImageProcessor.swift */; };
 		8EAFD1B12008CE56005498D4 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A72008CE56005498D4 /* MediaItem.swift */; };
 		8EAFD1B22008CE56005498D4 /* MediaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A82008CE56005498D4 /* MediaProcessor.swift */; };
@@ -38,6 +41,9 @@
 		8C5DDCD820A481CB00E30E71 /* FilterShaderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterShaderProvider.swift; sourceTree = "<group>"; };
 		8C5DDCDA20A493F200E30E71 /* SepiaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepiaFilter.swift; sourceTree = "<group>"; };
 		8C5DDCDC20A497F600E30E71 /* FilterShaderParamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterShaderParamManager.swift; sourceTree = "<group>"; };
+		8C5DDCDE20A5A4C200E30E71 /* BlurFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurFilter.swift; sourceTree = "<group>"; };
+		8C5DDCE020A5AF8300E30E71 /* SobelFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobelFilter.swift; sourceTree = "<group>"; };
+		8C5DDCE220A5B08900E30E71 /* ThresholdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdFilter.swift; sourceTree = "<group>"; };
 		8EAFD1812008CA5F005498D4 /* MediaWatermark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaWatermark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAFD1A62008CE56005498D4 /* MediaImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaImageProcessor.swift; sourceTree = "<group>"; };
 		8EAFD1A72008CE56005498D4 /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
@@ -86,6 +92,9 @@
 				8C5DDCD820A481CB00E30E71 /* FilterShaderProvider.swift */,
 				8C5DDCDA20A493F200E30E71 /* SepiaFilter.swift */,
 				8C5DDCDC20A497F600E30E71 /* FilterShaderParamManager.swift */,
+				8C5DDCDE20A5A4C200E30E71 /* BlurFilter.swift */,
+				8C5DDCE020A5AF8300E30E71 /* SobelFilter.swift */,
+				8C5DDCE220A5B08900E30E71 /* ThresholdFilter.swift */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -258,10 +267,13 @@
 				8C35B06F2088E31800770388 /* ColorFilter.swift in Sources */,
 				8C35B06E2088E31800770388 /* GraphicContext.swift in Sources */,
 				8EAFD1B12008CE56005498D4 /* MediaItem.swift in Sources */,
+				8C5DDCE120A5AF8300E30E71 /* SobelFilter.swift in Sources */,
 				8EAFD1B62008CE56005498D4 /* Assets.swift in Sources */,
+				8C5DDCDF20A5A4C200E30E71 /* BlurFilter.swift in Sources */,
 				8EAFD1B22008CE56005498D4 /* MediaProcessor.swift in Sources */,
 				8C5DDCDB20A493F200E30E71 /* SepiaFilter.swift in Sources */,
 				8EAFD1B42008CE56005498D4 /* MediaVideoProcessor.swift in Sources */,
+				8C5DDCE320A5B08900E30E71 /* ThresholdFilter.swift in Sources */,
 				8C35B0712088E31800770388 /* MediaFilter.swift in Sources */,
 				8C5DDCDD20A497F600E30E71 /* FilterShaderParamManager.swift in Sources */,
 				8EAFD1B32008CE56005498D4 /* MediaElement.swift in Sources */,

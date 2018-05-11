@@ -40,11 +40,12 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         
         completionClosure = completion
         
-        let shader = context?.mLibrary?.makeFunction(name: filter.name)
+        let filterName = (filter is ColorFilter || filter is SepiaFilter) ? filter.name : "default_shader"
+        let shader = context?.mLibrary?.makeFunction(name: filterName)
         
         do {
             mPipeline = try context?.mDevice?.makeComputePipelineState(function: shader!)
-             
+            
             let textureLoader = MTKTextureLoader(device: context!.mDevice!)
             mTexture = try textureLoader.newTexture(cgImage: image.cgImage!, options: [MTKTextureLoader.Option.SRGB: false])
             
@@ -70,23 +71,26 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         encoder.setComputePipelineState(mPipeline!)
         encoder.setTexture(mTexture, index: 0)
         encoder.setTexture(drawingTexture, index: 1)
-    
-//        let colorFilter = filter as! ColorFilter
-//
-//        var data = [CFloat(colorFilter.r), CFloat(colorFilter.g), CFloat(colorFilter.b)]
-//        let dataBuffer = view.device!.makeBuffer(bytes: &data, length: MemoryLayout.stride(ofValue: data), options: [])
-//        encoder.setBuffer(dataBuffer!, offset: 0, index: 0)
         
-        FilterShaderParamManager.manageParameters(fromFilter: filter, toEncoder: encoder, withView: view)
+        let filterConfiguration = FilterConfiguration()
+        filterConfiguration.view = view
+        filterConfiguration.encoder = encoder
+        filterConfiguration.sourceTexture = mTexture
+        filterConfiguration.destinationTexture = drawingTexture
+        filterConfiguration.filter = filter
+        filterConfiguration.commandBuffer = commandBuffer
         
+        if filter.hasCustomShader {
+            FilterShaderParamManager.manageParameters(configuration: filterConfiguration)
+        }
+
         encoder.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupCount)
         encoder.endEncoding()
         
-//        let blurFilter = MPSImageGaussianBlur(device: context!.mDevice!, sigma: 45.0)
-//        blurFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)
+        if !filter.hasCustomShader {
+            FilterShaderParamManager.manageParameters(configuration: filterConfiguration)
+        }
         
-//        let sobelFilter = MPSImageSobel(device: context!.mDevice!)
-//        sobelFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)
         
 //                let thresholdFilter = MPSImageThresholdToZero(device: context!.mDevice!, thresholdValue: 0.5, linearGrayColorTransform: nil)
 //                thresholdFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)

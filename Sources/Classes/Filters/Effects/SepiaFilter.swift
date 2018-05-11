@@ -13,6 +13,7 @@ public class SepiaFilter: MediaFilter {
         super.init()
         
         name = kSepiaFilterName
+        hasCustomShader = true
     }
 }
 
