@@ -46,7 +46,6 @@ extension MediaProcessor {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-//        completion(MediaProcessResult(processedUrl: nil, image: newImage), nil)
-        completion(MediaProcessResult(processedUrl: nil, image: newImage?.fixedOrientation()), nil)
+        completion(MediaProcessResult(processedUrl: nil, image: newImage), nil)
     }
 }
