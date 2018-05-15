@@ -91,11 +91,6 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
             FilterShaderParamManager.manageParameters(configuration: filterConfiguration)
         }
         
-        
-//                let thresholdFilter = MPSImageThresholdToZero(device: context!.mDevice!, thresholdValue: 0.5, linearGrayColorTransform: nil)
-//                thresholdFilter.encode(commandBuffer: commandBuffer, sourceTexture: mTexture!, destinationTexture: drawingTexture)
-//
-        
         commandBuffer.present(view.currentDrawable!)
         commandBuffer.commit()
         
