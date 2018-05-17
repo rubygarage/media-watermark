@@ -9,6 +9,8 @@
 import Foundation
 
 public class MediaProcessor {
+    public var filterProcessor: FilterProcessor! = nil
+    
     public init() {}
     
     // MARK: - process elements
