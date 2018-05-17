@@ -121,6 +121,45 @@ if let item = MediaItem(url: url) {
     }
 }
 ```
+__Image processing by Metal__
+
+MediaWatermark provides five filters for images:
+
+- Color filter
+- Sepia
+- Blur
+- Sobel
+- Threshold
+
+To add filter over image:
+
+```swift
+let item = MediaItem(image: image)
+
+let colorFilter = ColorFilter()
+colorFilter.r = 1
+colorFilter.g = 1
+colorFilter.b = 0
+        
+item.applyFilter(mediaFilter: colorFilter)
+        
+let logoImage = UIImage(named: "logo")
+        
+let firstElement = MediaElement(image: logoImage!)
+firstElement.frame = CGRect(x: 0, y: 0, width: logoImage!.size.width, height: logoImage!.size.height)
+        
+let secondElement = MediaElement(image: logoImage!)
+secondElement.frame = CGRect(x: 100, y: 100, width: logoImage!.size.width, height: logoImage!.size.height)
+        
+item.add(elements: [firstElement, secondElement])
+        
+let mediaProcessor = MediaProcessor()
+mediaProcessor.processElements(item: item) { [weak self] (result, error) in
+    self?.resultImageView.image = result.image
+}
+```
+
+Please note that filters are currently used for image assets only.
 
 ## Author
 
