@@ -61,7 +61,7 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
     }
     
     public func draw(in view: MTKView) {
-        #if !(arch(i386) || arch(x86_64))
+        #if (arch(arm) || arch(arm64)) && os(iOS)
 
         let commandBuffer = context!.mCommandQueue!.makeCommandBuffer()!
        
