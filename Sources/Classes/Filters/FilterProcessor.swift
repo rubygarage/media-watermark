@@ -61,9 +61,12 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
     }
     
     public func draw(in view: MTKView) {
+        #if !(arch(i386) || arch(x86_64))
+
         let commandBuffer = context!.mCommandQueue!.makeCommandBuffer()!
+       
         let drawingTexture = view.currentDrawable!.texture
-        
+       
         let threadGroupCount = MTLSizeMake(16, 16, 1)
         let threadGroups = MTLSizeMake(drawingTexture.width / threadGroupCount.width, drawingTexture.height / threadGroupCount.height, 1)
         
@@ -95,6 +98,7 @@ public class FilterProcessor: NSObject, MTKViewDelegate {
         commandBuffer.commit()
         
         completionClosure!(true, processFinished, UIImage.image(fromTexture: mtkView!.currentDrawable!.texture), nil)
+        #endif
     }
     
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
