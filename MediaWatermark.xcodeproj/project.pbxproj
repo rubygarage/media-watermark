@@ -24,7 +24,6 @@
 		8EAFD1B42008CE56005498D4 /* MediaVideoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1AA2008CE56005498D4 /* MediaVideoProcessor.swift */; };
 		8EAFD1B62008CE56005498D4 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1AD2008CE56005498D4 /* Assets.swift */; };
 		8EAFD1B72008CE56005498D4 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1AE2008CE56005498D4 /* Images.swift */; };
-		8EAFD1B82008CE56005498D4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EAFD1AF2008CE56005498D4 /* Info.plist */; };
 		8ED16CE7200E0360009AA4B9 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 8ED16CE6200E0360009AA4B9 /* CHANGELOG.md */; };
 		8EDE62292008D7BB00E0F8A5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE62262008D7BB00E0F8A5 /* LICENSE */; };
 		8EDE622A2008D7BB00E0F8A5 /* MediaWatermark.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE62272008D7BB00E0F8A5 /* MediaWatermark.podspec */; };
@@ -214,11 +213,12 @@
 		8EAFD1782008CA5F005498D4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = RubyGarage;
 				TargetAttributes = {
 					8EAFD1802008CA5F005498D4 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -229,6 +229,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 8EAFD1772008CA5F005498D4;
 			productRefGroup = 8EAFD1822008CA5F005498D4 /* Products */;
@@ -247,7 +248,6 @@
 			files = (
 				8EDE62292008D7BB00E0F8A5 /* LICENSE in Resources */,
 				8ED16CE7200E0360009AA4B9 /* CHANGELOG.md in Resources */,
-				8EAFD1B82008CE56005498D4 /* Info.plist in Resources */,
 				8EDE622B2008D7BB00E0F8A5 /* README.md in Resources */,
 				8EDE622A2008D7BB00E0F8A5 /* MediaWatermark.podspec in Resources */,
 			);
@@ -297,6 +297,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -304,6 +305,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -357,6 +359,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -364,6 +367,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -413,7 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rubygarage.MediaWatermark;
 				PRODUCT_NAME = MediaWatermark;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -434,7 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rubygarage.MediaWatermark;
 				PRODUCT_NAME = MediaWatermark;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

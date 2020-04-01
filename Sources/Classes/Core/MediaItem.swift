@@ -31,7 +31,7 @@ public class MediaItem {
             if sourceAsset != nil {
                 if let track = AVAsset(url: sourceAsset.url).tracks(withMediaType: AVMediaType.video).first {
                     let size = track.naturalSize.applying(track.preferredTransform)
-                    return CGSize(width: fabs(size.width), height: fabs(size.height))
+                    return CGSize(width: abs(size.width), height: abs(size.height))
                 } else {
                     return CGSize.zero
                 }
