@@ -18,8 +18,8 @@ extension AVAsset {
         return isContentPortrait ? CGSize(width: contentNaturalSize.height, height: contentNaturalSize.width) : contentNaturalSize
     }
     
-    var contentOrientation: UIImageOrientation {
-        var assetOrientation = UIImageOrientation.up
+    var contentOrientation: UIImage.Orientation {
+        var assetOrientation = UIImage.Orientation.up
         let transform = tracks(withMediaType: AVMediaType.video)[0].preferredTransform
         
         if (transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0) {
@@ -42,7 +42,7 @@ extension AVAsset {
     }
     
     var isContentPortrait: Bool {
-        let portraits: [UIImageOrientation] = [.left, .right]
+        let portraits: [UIImage.Orientation] = [.left, .right]
         return portraits.contains(contentOrientation)
     }
 }
