@@ -121,6 +121,45 @@ if let item = MediaItem(url: url) {
     }
 }
 ```
+__Image processing by Metal__
+
+MediaWatermark provides five filters for images:
+
+- Color filter
+- Sepia
+- Blur
+- Sobel
+- Threshold
+
+To add filter over image:
+
+```swift
+let item = MediaItem(image: image)
+
+let colorFilter = ColorFilter()
+colorFilter.r = 1
+colorFilter.g = 1
+colorFilter.b = 0
+        
+item.applyFilter(mediaFilter: colorFilter)
+        
+let logoImage = UIImage(named: "logo")
+        
+let firstElement = MediaElement(image: logoImage!)
+firstElement.frame = CGRect(x: 0, y: 0, width: logoImage!.size.width, height: logoImage!.size.height)
+        
+let secondElement = MediaElement(image: logoImage!)
+secondElement.frame = CGRect(x: 100, y: 100, width: logoImage!.size.width, height: logoImage!.size.height)
+        
+item.add(elements: [firstElement, secondElement])
+        
+let mediaProcessor = MediaProcessor()
+mediaProcessor.processElements(item: item) { [weak self] (result, error) in
+    self?.resultImageView.image = result.image
+}
+```
+
+Please note that filters are currently used for image assets only.
 
 ## Author
 
@@ -132,4 +171,8 @@ sergey.afanasiev@rubygarage.org
 
 ## License
 
-MediaWatermark is available under the MIT license. See the LICENSE file for more info.
+MediaWatermark is available under the [MIT](https://opensource.org/licenses/MIT) license. See the [LICENSE](https://github.com/rubygarage/media-watermark/blob/master/LICENSE) file for more info.
+***
+<a href="https://rubygarage.org/"><img src="https://rubygarage.s3.amazonaws.com/assets/assets/rg_color_logo_horizontal-919afc51a81d2e40cb6a0b43ee832e3fcd49669d06785156d2d16fd0d799f89e.png" alt="RubyGarage Logo" width="415" height="128"></a>
+
+RubyGarage is a leading software development and consulting company in Eastern Europe. Our main expertise includes Ruby and Ruby on Rails, but we successfully employ other technologies to deliver the best results to our clients. [Check out our portfolio](https://rubygarage.org/portfolio) for even more exciting works!

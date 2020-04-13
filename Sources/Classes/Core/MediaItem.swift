@@ -26,10 +26,28 @@ public class MediaItem {
         return sourceAsset != nil ? .video : .image
     }
     
+    public var size: CGSize {
+        get {
+            if sourceAsset != nil {
+                if let track = AVAsset(url: sourceAsset.url).tracks(withMediaType: AVMediaType.video).first {
+                    let size = track.naturalSize.applying(track.preferredTransform)
+                    return CGSize(width: abs(size.width), height: abs(size.height))
+                } else {
+                    return CGSize.zero
+                }
+            } else if sourceImage != nil {
+                return sourceImage.size
+            }
+            
+            return CGSize.zero
+        }
+    }
+    
     public private(set) var sourceAsset: AVURLAsset! = nil
     public private(set) var sourceImage: UIImage! = nil
     public private(set) var mediaElements = [MediaElement]()
-    
+    public private(set) var filter: MediaFilter! = nil
+
     // MARK: - init
     public init(asset: AVURLAsset) {
         sourceAsset = asset
@@ -63,6 +81,11 @@ public class MediaItem {
     
     public func removeAllElements() {
         mediaElements.removeAll()
+    }
+    
+    // MARK: - filters
+    public func applyFilter(mediaFilter: MediaFilter) {
+        filter = mediaFilter
     }
     
     // MARK: - private

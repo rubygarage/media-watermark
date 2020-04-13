@@ -10,6 +10,26 @@ import UIKit
 
 extension MediaProcessor {
     func processImageWithElements(item: MediaItem, completion: @escaping ProcessCompletionHandler) {
+        if item.filter != nil {
+            filterProcessor = FilterProcessor(mediaFilter: item.filter)
+            filterProcessor.processImage(image: item.sourceImage.fixedOrientation(), completion: { [weak self] (success, finished, image, error) in
+                if error != nil {
+                    completion(MediaProcessResult(processedUrl: nil, image: nil), error)
+                } else if image != nil && finished == true {
+                    completion(MediaProcessResult(processedUrl: nil, image: image), nil)
+
+                    let updatedMediaItem = MediaItem(image: image!)
+                    updatedMediaItem.add(elements: item.mediaElements)
+                    self?.processItemAfterFiltering(item: updatedMediaItem, completion: completion)
+                }
+            })
+            
+        } else {
+            processItemAfterFiltering(item: item, completion: completion)
+        }
+    }
+    
+    func processItemAfterFiltering(item: MediaItem, completion: @escaping ProcessCompletionHandler) {
         UIGraphicsBeginImageContextWithOptions(item.sourceImage.size, false, item.sourceImage.scale)
         item.sourceImage.draw(in: CGRect(x: 0, y: 0, width: item.sourceImage.size.width, height: item.sourceImage.size.height))
         
