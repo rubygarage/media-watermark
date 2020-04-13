@@ -29,14 +29,14 @@ pod "MediaWatermark"
 To integrate MediaWatermark into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile`:
 
 ```ogdl
-github "rubygarage/media-watermark" ~> 0.2
+github "rubygarage/media-watermark" ~> 0.4
 ```
 Run `carthage update` to build the framework and drag the built MediaWatermark.framework into your Xcode project.
 
 ## Requirements
 
 iOS: 9.0+  
-Swift: 4.0  
+Swift: 5.0  
 CocoaPods: for iOS  
 Processing Concept: GPU & CPU
 
