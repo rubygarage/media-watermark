@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MediaWatermark'
-  s.version          = '0.3.1'
+  s.version          = '0.4.0'
   s.summary          = 'iOS watermark library'
 
 # This description is used to generate tags and improve search results.
@@ -31,4 +31,6 @@ MediaWatermark is a GPU/CPU-based iOS watermark library for overlays adding to v
   s.source_files = 'Sources/Classes/**/*'
 
   s.frameworks = 'UIKit'
+
+  s.swift_version = '5.0'
 end
