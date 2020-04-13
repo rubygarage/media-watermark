@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.4.1](https://github.com/rubygarage/media-watermark/releases/tag/0.4.1)
+- Added Swift 5 support (kudos @sivrish)
+
 ## [0.2.0](https://github.com/rubygarage/media-watermark/releases/tag/0.2.0)
 Released on 2018-01-16
 
