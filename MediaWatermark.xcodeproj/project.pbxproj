@@ -17,6 +17,7 @@
 		8C5DDCDF20A5A4C200E30E71 /* BlurFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCDE20A5A4C200E30E71 /* BlurFilter.swift */; };
 		8C5DDCE120A5AF8300E30E71 /* SobelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCE020A5AF8300E30E71 /* SobelFilter.swift */; };
 		8C5DDCE320A5B08900E30E71 /* ThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5DDCE220A5B08900E30E71 /* ThresholdFilter.swift */; };
+		8E43787B244468470041C2F9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EAFD1AF2008CE56005498D4 /* Info.plist */; };
 		8EAFD1B02008CE56005498D4 /* MediaImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A62008CE56005498D4 /* MediaImageProcessor.swift */; };
 		8EAFD1B12008CE56005498D4 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A72008CE56005498D4 /* MediaItem.swift */; };
 		8EAFD1B22008CE56005498D4 /* MediaProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFD1A82008CE56005498D4 /* MediaProcessor.swift */; };
@@ -249,6 +250,7 @@
 				8EDE62292008D7BB00E0F8A5 /* LICENSE in Resources */,
 				8ED16CE7200E0360009AA4B9 /* CHANGELOG.md in Resources */,
 				8EDE622B2008D7BB00E0F8A5 /* README.md in Resources */,
+				8E43787B244468470041C2F9 /* Info.plist in Resources */,
 				8EDE622A2008D7BB00E0F8A5 /* MediaWatermark.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +416,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.rubygarage.MediaWatermark;
 				PRODUCT_NAME = MediaWatermark;
 				SKIP_INSTALL = YES;
@@ -436,7 +438,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.rubygarage.MediaWatermark;
 				PRODUCT_NAME = MediaWatermark;
 				SKIP_INSTALL = YES;
