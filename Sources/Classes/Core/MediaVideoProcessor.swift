@@ -22,7 +22,7 @@ extension MediaProcessor {
         let clipAudioTrack = item.sourceAsset.tracks(withMediaType: AVMediaType.audio).first
         
         do {
-            try compositionVideoTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipVideoTrack!, at: kCMTimeZero)
+            try compositionVideoTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: item.sourceAsset.duration), of: clipVideoTrack!, at: CMTime.zero)
         } catch {
             completion(MediaProcessResult(processedUrl: nil, image: nil), error)
         }
@@ -31,7 +31,7 @@ extension MediaProcessor {
             let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
 
             do {
-                try compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, item.sourceAsset.duration), of: clipAudioTrack!, at: kCMTimeZero)
+                try compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: item.sourceAsset.duration), of: clipAudioTrack!, at: CMTime.zero)
             } catch {
                 completion(MediaProcessResult(processedUrl: nil, image: nil), error)
             }
@@ -54,16 +54,16 @@ extension MediaProcessor {
         parentLayer.addSublayer(optionalLayer)
         
         let videoComposition = AVMutableVideoComposition()
-        videoComposition.frameDuration = CMTimeMake(kMediaContentTimeValue, kMediaContentTimeScale)
+        videoComposition.frameDuration = CMTimeMake(value: kMediaContentTimeValue, timescale: kMediaContentTimeScale)
         videoComposition.renderSize = sizeOfVideo
         videoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
         
         let instruction = AVMutableVideoCompositionInstruction()
-        instruction.timeRange = CMTimeRangeMake(kCMTimeZero, mixComposition.duration)
+        instruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: mixComposition.duration)
         
         let videoTrack = mixComposition.tracks(withMediaType: AVMediaType.video).first
         let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack!)
-        layerInstruction.setTransform(transform(avAsset: item.sourceAsset, scaleFactor: kMediaContentDefaultScale), at: kCMTimeZero)
+        layerInstruction.setTransform(transform(avAsset: item.sourceAsset, scaleFactor: kMediaContentDefaultScale), at: CMTime.zero)
         
         instruction.layerInstructions = [layerInstruction]
         videoComposition.instructions = [instruction]
@@ -77,7 +77,7 @@ extension MediaProcessor {
         exportSession?.outputFileType = AVFileType.mp4
         
         exportSession?.exportAsynchronously(completionHandler: {
-            if exportSession?.status == AVAssetExportSessionStatus.completed {
+            if exportSession?.status == AVAssetExportSession.Status.completed {
                 completion(MediaProcessResult(processedUrl: processedUrl, image: nil), nil)
             } else {
                 completion(MediaProcessResult(processedUrl: nil, image: nil), exportSession?.error)
