@@ -31,4 +31,6 @@ MediaWatermark is a GPU/CPU-based iOS watermark library for overlays adding to v
   s.source_files = 'Sources/Classes/**/*'
 
   s.frameworks = 'UIKit'
+
+  s.swift_version = '5.0'
 end
